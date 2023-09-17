@@ -1,0 +1,25 @@
+IDIR=.
+CC=gcc
+CFLAGS=-I$(IDIR) -O3 -fexpensive-optimizations -m64 -foptimize-register-move -funroll-loops -ffast-math -mtune=native -march=native
+
+ODIR=obj
+LDIR=../lib
+BIN=bin
+
+_DEPS=ising_serial.h
+DEPS=$(patsubst %,$(IDIR)/%,$(_DEPS))
+
+_OBJ=ising_serial.o
+OBJ=$(patsubst %,$(ODIR)/%,$(_OBJ))
+
+LIBS=-lm
+
+$(ODIR)/%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+ising.x: $(OBJ)
+	$(CC) -o $(BIN)/$@ $^ $(CFLAGS) $(LIBS)
+
+.PHONY: clean
+clean:
+	rm -f $(ODIR)/*.o $(BIN)/*.x *~ core 
