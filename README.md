@@ -1,5 +1,5 @@
-<p>Projeto: Ising 2D</p>
-<h1>Autor: Renato Maciel Félix</h1>
+<h1>Projeto: Ising 2D</h1>
+<p>Autor: Renato Maciel Félix</p>
 
 <p>Projeto final da matéria Computação de Alto Desempenho II (HPC2). Onde buscamos resolver um problema numérico e aplicar conceitos de paralelismo, com objetivo de obter maior performance no nosso código.</p>
 
